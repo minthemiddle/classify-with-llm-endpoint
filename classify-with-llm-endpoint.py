@@ -37,14 +37,14 @@ with open(os.path.join(script_dir, 'prompt.txt'), 'r') as file:
 def classify_messages(input_csv, output_csv):
     """
     This script reads messages from a CSV file, sends them to an API for classification,
-    and appends the response to the CSV file in a new column 'label_classification_llm'.
+    and appends the response to the CSV file in a new column 'classification_llm'.
     """
     df = pd.read_csv(input_csv)
 
-    if 'label_classification_llm' not in df.columns:
-        df['label_classification_llm'] = None
+    if 'classification_llm' not in df.columns:
+        df['classification_llm'] = None
     
-    df['label_classification_llm'] = df['label_classification_llm'].astype('object')
+    df['classification_llm'] = df['classification_llm'].astype('object')
     
 
     for index, row in df.iterrows():
@@ -81,8 +81,8 @@ def classify_messages(input_csv, output_csv):
             print(f"Error parsing JSON for ID: {index}")
             classification = None
         
-        # Update the 'label_classification_llm' column with the classification
-        df.at[index, 'label_classification_llm'] = classification
+        # Update the 'classification_llm' column with the classification
+        df.at[index, 'classification_llm'] = classification
 
     # Determine the output CSV file path
     output_csv = output_csv if output_csv else input_csv

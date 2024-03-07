@@ -6,7 +6,7 @@ Reads prompt from text file.
 Replaces placeholder in prompt with real message.  
 
 Classify with an LLM classification API.  
-Saves back class to CSV in column `label_classification_llm`.  
+Saves back class to CSV in column `classification_llm`.  
 
 **Usage**  
 `python -m venv venv`  
