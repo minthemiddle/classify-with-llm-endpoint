@@ -28,7 +28,7 @@ client = OpenAI(
 )
 
 # Load prompt
-with open('prompt.txt', 'r') as file:
+with open(os.path.join(script_dir, 'prompt.txt'), 'r') as file:
     prompt = file.read()
 
 @click.command()
